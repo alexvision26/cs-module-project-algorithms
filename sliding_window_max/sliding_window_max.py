@@ -4,8 +4,22 @@ Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
     # Your code here
+    # each iteration, k values are added to array
+    # of the three values added, append the highest value to a results list
+    lp = 0
+    rp = k - 1
+    res = []
 
-    pass
+    while rp <= len(nums) - 1:
+        window = []
+        for x in range(k):
+            window.append(nums[x + lp])
+        max_val = max(window)
+        res.append(max_val)
+        lp += 1
+        rp += 1
+
+    return res
 
 
 if __name__ == '__main__':

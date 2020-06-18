@@ -4,8 +4,21 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     # Your code here
+    # array needs to multiply the value of all other numbers except the current index during iteration
+    res = []
+    q = [x for x in arr]
+    count = 0
 
-    pass
+    while count < len(q):
+        prod = 1
+        curr = q.pop(count) # remove current element to avoid being multiplied, store it in variable
+        for i in q: 
+            prod = prod * i # loop through remaining numbers and get product
+        res.append(prod) #append that product to the answers list
+        q.insert(count, curr) # re add the number removed to keep list
+        count += 1 #increment counter to iterate over each element
+    return res
+
 
 
 if __name__ == '__main__':
